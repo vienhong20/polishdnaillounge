@@ -1,11 +1,14 @@
-import { Clock, MapPin, Phone } from "lucide-react";
+import { Clock, MapPin, Phone, Navigation } from "lucide-react";
 import { Instagram, Facebook } from "./SocialIcons";
 import Reveal from "./Reveal";
 import { site } from "@/data/site";
 
-const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(
-  site.address
-)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+// Keyless OpenStreetMap embed (Google's keyless embed is blocked in iframes).
+const lat = 25.8871902;
+const lon = -80.1650841;
+const d = 0.006;
+const mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${lon - d}%2C${lat - d}%2C${lon + d}%2C${lat + d}&layer=mapnik&marker=${lat}%2C${lon}`;
+const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(site.address)}`;
 
 export default function Contact() {
   return (
@@ -78,12 +81,22 @@ export default function Contact() {
         </Reveal>
 
         <Reveal>
-          <iframe
-            title="Polishd Nail Lounge location map"
-            src={mapSrc}
-            loading="lazy"
-            className="h-72 w-full rounded-3xl border border-blush/40 md:h-full md:min-h-[22rem]"
-          />
+          <div className="relative h-72 overflow-hidden rounded-3xl border border-blush/40 md:h-full md:min-h-[22rem]">
+            <iframe
+              title="Polishd Nail Lounge location map"
+              src={mapSrc}
+              loading="lazy"
+              className="h-full w-full"
+            />
+            <a
+              href={directionsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute bottom-4 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 rounded-full bg-rose px-5 py-2.5 text-sm font-medium text-white shadow-md transition hover:bg-rose/90"
+            >
+              <Navigation size={16} /> Get Directions
+            </a>
+          </div>
         </Reveal>
       </div>
     </section>

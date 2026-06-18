@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-gradient-to-b from-peach via-cream to-cream pb-16 pt-28 md:pb-24 md:pt-36"
+      className="relative flex min-h-[88vh] items-center overflow-hidden bg-gradient-to-b from-peach via-cream to-cream pb-16 pt-28 md:min-h-screen md:pb-24 md:pt-24"
     >
       {/* floating pastel blobs */}
       <motion.div

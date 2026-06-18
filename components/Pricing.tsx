@@ -58,29 +58,37 @@ export default function Pricing() {
                   <div className="overflow-hidden">
                     <div className="px-6 py-3">
                       {cat.groups.map((group, gi) => (
-                        <div key={gi} className={gi > 0 ? "mt-5" : ""}>
+                        <div key={gi} className={gi > 0 ? "mt-6" : ""}>
                           {group.label && (
-                            <p className="pb-1 pt-1 text-xs font-semibold uppercase tracking-wider text-gold">
+                            <p className="pb-2 pt-1 text-xs font-semibold uppercase tracking-wider text-gold">
                               {group.label}
                             </p>
                           )}
-                          <ul className="divide-y divide-blush/20">
+                          <ul className="space-y-3.5">
                             {group.services.map((s) => (
-                              <li
-                                key={`${s.name}-${s.note ?? ""}`}
-                                className="flex items-center justify-between gap-4 py-3"
-                              >
-                                <span className="text-sm text-ink">
-                                  {s.name}
-                                  {s.note && (
-                                    <span className="ml-1 italic text-muted">
-                                      ({s.note})
-                                    </span>
-                                  )}
-                                </span>
-                                <span className="shrink-0 rounded-full bg-peach/60 px-3 py-1 text-sm font-semibold text-ink">
-                                  {displayPrice(s.price, mode)}
-                                </span>
+                              <li key={`${s.name}-${s.note ?? ""}`}>
+                                <div className="flex items-baseline gap-2">
+                                  <span className="text-sm font-medium text-ink">
+                                    {s.name}
+                                    {s.note && (
+                                      <span className="ml-1 font-normal italic text-muted">
+                                        ({s.note})
+                                      </span>
+                                    )}
+                                  </span>
+                                  <span
+                                    aria-hidden
+                                    className="min-w-6 flex-grow translate-y-[-3px] border-b border-dotted border-muted/40"
+                                  />
+                                  <span className="shrink-0 text-sm font-semibold text-rose">
+                                    {displayPrice(s.price, mode)}
+                                  </span>
+                                </div>
+                                {s.desc && (
+                                  <p className="mt-1 max-w-[44ch] pr-10 text-xs leading-relaxed text-muted">
+                                    {s.desc}
+                                  </p>
+                                )}
                               </li>
                             ))}
                           </ul>

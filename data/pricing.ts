@@ -1,4 +1,4 @@
-export type Service = { name: string; note?: string; price: number };
+export type Service = { name: string; note?: string; desc?: string; price: number };
 export type Group = { label?: string; services: Service[] };
 export type Category = { title: string; groups: Group[] };
 
@@ -9,9 +9,21 @@ export const pricing: Category[] = [
       {
         label: "Manicure",
         services: [
-          { name: "Basic Manicure", price: 20 },
-          { name: "Deluxe Manicure", price: 35 },
-          { name: "Gel Manicure", price: 35 },
+          {
+            name: "Basic Manicure",
+            desc: "Nail shaping, cuticle care, and regular polish.",
+            price: 20,
+          },
+          {
+            name: "Deluxe Manicure",
+            desc: "Basic manicure with exfoliating scrub and extended hand massage.",
+            price: 35,
+          },
+          {
+            name: "Gel Manicure",
+            desc: "Manicure finished with long-lasting gel polish cured under LED.",
+            price: 35,
+          },
           { name: "Gel Manicure / Dip Removal", price: 45 },
           { name: "Gel Deluxe Manicure", price: 50 },
           { name: "Structure Gel Manicure", price: 50 },
@@ -20,14 +32,26 @@ export const pricing: Category[] = [
       {
         label: "Pedicure",
         services: [
-          { name: "Classic Pedicure", price: 30 },
+          {
+            name: "Classic Pedicure",
+            desc: "Warm soak, scrub, nail and cuticle care, and a relaxing massage.",
+            price: 30,
+          },
           { name: "Cool Blue Pedicure", price: 34 },
-          { name: "Deluxe Spa Pedicure", price: 45 },
+          {
+            name: "Deluxe Spa Pedicure",
+            desc: "Classic pedicure with sugar scrub, mask, and extended massage.",
+            price: 45,
+          },
           { name: "Gel Pedicure", price: 50 },
           { name: "Paradise Spa Pedicure", price: 55 },
           { name: "Honey and Milk Spa Pedicure", price: 69 },
           { name: "Ola La Spa Pedicure", price: 79 },
-          { name: "Lava Spa Pedicure", price: 99 },
+          {
+            name: "Lava Spa Pedicure",
+            desc: "Our signature spa ritual with hot lava gel and hot stone massage.",
+            price: 99,
+          },
           { name: "Add-On Gel Polish", note: "any pedicure", price: 20 },
         ],
       },
@@ -41,7 +65,11 @@ export const pricing: Category[] = [
         services: [
           { name: "Reg. Fill", price: 45 },
           { name: "Gel Fill", price: 50 },
-          { name: "Gel Fullset", price: 60 },
+          {
+            name: "Gel Fullset",
+            desc: "Durable gel-enhanced full set, shaped to your length and style.",
+            price: 60,
+          },
           { name: "Reg. Fullset", price: 50 },
           { name: "Ombre Fill", price: 55 },
           { name: "Ombre Fullset", price: 70 },
@@ -50,13 +78,21 @@ export const pricing: Category[] = [
           { name: "Pink Fill", price: 45 },
           { name: "Liquid Gel / Fill", price: 55 },
           { name: "Liquid Gel / Fullset", price: 65 },
-          { name: "Gel X / Apres", price: 65 },
+          {
+            name: "Gel X / Apres",
+            desc: "Lightweight soft-gel extension tips for a natural full set.",
+            price: 65,
+          },
         ],
       },
       {
         label: "Dipping Powder & Healthy Nails",
         services: [
-          { name: "Dip Color", price: 50 },
+          {
+            name: "Dip Color",
+            desc: "Durable dipping powder color — no UV light needed.",
+            price: 50,
+          },
           { name: "Dip w/ Tip", price: 55 },
           { name: "Dip w/ Gel", price: 55 },
           { name: "Dip French", price: 60 },
@@ -99,7 +135,11 @@ export const pricing: Category[] = [
       {
         label: "Waxing",
         services: [
-          { name: "Eyebrow", price: 12 },
+          {
+            name: "Eyebrow",
+            desc: "Professional eyebrow shaping.",
+            price: 12,
+          },
           { name: "Upper Lip", price: 9 },
           { name: "Chin", price: 10 },
           { name: "Sideburns", price: 12 },
@@ -120,8 +160,16 @@ export const pricing: Category[] = [
       {
         label: "Eyelash Extension",
         services: [
-          { name: "Cluster New Set", price: 35 },
-          { name: "Individual New Set", price: 120 },
+          {
+            name: "Cluster New Set",
+            desc: "Quick, fuller lashes applied in small clusters.",
+            price: 35,
+          },
+          {
+            name: "Individual New Set",
+            desc: "Full classic set applied lash by lash for a natural look.",
+            price: 120,
+          },
           { name: "Individual Refill", price: 60 },
         ],
       },

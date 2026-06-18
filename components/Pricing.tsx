@@ -41,7 +41,7 @@ export default function Pricing() {
                 <button
                   type="button"
                   aria-expanded={isOpen}
-                  onClick={() => setOpen(isOpen ? -1 : i)}
+                  onClick={() => setOpen(i)}
                   className={`flex w-full cursor-pointer items-center justify-between gap-3 px-6 py-5 text-left transition-colors ${tints[i % tints.length]}`}
                 >
                   <span className="font-display text-xl text-ink md:text-2xl">

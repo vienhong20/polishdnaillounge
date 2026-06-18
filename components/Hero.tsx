@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import BookButton from "./BookButton";
@@ -52,6 +53,27 @@ export default function Hero() {
             View Menu
           </a>
         </div>
+
+        <motion.div
+          className="relative mx-auto mt-12 w-full max-w-md"
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
+        >
+          <div className="relative aspect-[5/4] overflow-hidden rounded-[2rem] border border-white/70 shadow-xl shadow-rose/20 ring-1 ring-blush/40">
+            <Image
+              src="/images/nail-5.jpg"
+              alt="Beautiful soft pink manicure at Polishd Nail Lounge"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 448px"
+              className="object-cover"
+            />
+          </div>
+          <span className="absolute -bottom-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full bg-white px-4 py-2 text-xs font-medium text-rose shadow-md">
+            <Sparkles size={13} /> Walk-ins welcome
+          </span>
+        </motion.div>
       </motion.div>
     </section>
   );

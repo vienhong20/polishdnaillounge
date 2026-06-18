@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Polishd Nail Lounge
 
-## Getting Started
+Mobile-first landing page for **Polishd Nail Lounge** (12000 Biscayne Blvd #150, Miami, FL 33181).
 
-First, run the development server:
+Built with Next.js 16, Tailwind CSS v4, and Framer Motion. Pastel/cute design with a full
+price menu (Cash / Card +2% toggle) and Rewanow online booking.
+
+## Develop
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm test         # price helper unit tests
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Editing content
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Salon info** (name, phone, address, hours, socials, booking) — `data/site.ts`
+- **Price menu** — `data/pricing.ts` (cash prices; card = cash × 1.02 at runtime)
+- **Gallery photos** — replace files in `public/images/nail-1.jpg … nail-6.jpg`
+  (currently professional stock nail photography — swap with the salon's own shots)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Booking widget (Rewanow)
 
-## Learn More
+Loaded in `app/layout.tsx`. Every "Book Now" button uses
+`busid = 5931931713667072` (`data/site.ts`). If the widget script fails to attach,
+buttons fall back to opening the booking page in a new tab.
 
-To learn more about Next.js, take a look at the following resources:
+## Live Google reviews
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`components/Reviews.tsx` shows the real star rating + links to Google/Yelp by default.
+To show live, auto-updating Google reviews:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Create a free **Google Reviews** widget at https://elfsight.com/google-reviews-widget/
+2. Connect the Polishd Nail Lounge Google profile and copy the widget id
+   (the part after `elfsight-app-` in the embed code).
+3. Paste it into `reviews.elfsightAppId` in `data/site.ts`.
 
-## Deploy on Vercel
+The widget then renders in place of the fallback card.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Import the repo at https://vercel.com/new — framework auto-detects as Next.js, no env vars needed.

@@ -1,15 +1,16 @@
+import Image from "next/image";
 import { Instagram } from "./SocialIcons";
 import Reveal from "./Reveal";
 import { site } from "@/data/site";
 
-// Placeholder pastel tiles — swap each for a real <Image> once photos are ready.
-const tiles = [
-  { from: "from-blush", to: "to-peach", label: "Gel Art" },
-  { from: "from-peach", to: "to-rose/40", label: "Ombré" },
-  { from: "from-rose/30", to: "to-blush", label: "French" },
-  { from: "from-blush/70", to: "to-cream", label: "Spa Pedi" },
-  { from: "from-peach/80", to: "to-blush", label: "Dip Set" },
-  { from: "from-rose/40", to: "to-peach", label: "Chrome" },
+// Real nail photography (public/images). Swap for the salon's own shots anytime.
+const photos = [
+  { src: "/images/nail-3.jpg", label: "Nail Art" },
+  { src: "/images/nail-5.jpg", label: "Soft & Nude" },
+  { src: "/images/nail-2.jpg", label: "Clean Mani" },
+  { src: "/images/nail-4.jpg", label: "Glam Set" },
+  { src: "/images/nail-1.jpg", label: "Salon Care" },
+  { src: "/images/nail-6.jpg", label: "Gentle Touch" },
 ];
 
 export default function Gallery() {
@@ -23,13 +24,19 @@ export default function Gallery() {
       </Reveal>
 
       <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
-        {tiles.map((t, i) => (
-          <Reveal key={t.label} delay={(i % 3) * 0.08}>
-            <div
-              className={`flex aspect-square items-end rounded-3xl bg-gradient-to-br ${t.from} ${t.to} p-4`}
-            >
-              <span className="rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-ink backdrop-blur">
-                {t.label}
+        {photos.map((p, i) => (
+          <Reveal key={p.src} delay={(i % 3) * 0.08}>
+            <div className="group relative aspect-square overflow-hidden rounded-3xl">
+              <Image
+                src={p.src}
+                alt={`${p.label} nails at Polishd Nail Lounge`}
+                fill
+                sizes="(max-width: 768px) 50vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/30 to-transparent" />
+              <span className="absolute bottom-3 left-3 rounded-full bg-white/80 px-3 py-1 text-xs font-medium text-ink backdrop-blur">
+                {p.label}
               </span>
             </div>
           </Reveal>

@@ -27,17 +27,13 @@ Loaded in `app/layout.tsx`. Every "Book Now" button uses
 `busid = 5931931713667072` (`data/site.ts`). If the widget script fails to attach,
 buttons fall back to opening the booking page in a new tab.
 
-## Live Google reviews
+## Testimonials carousel
 
-`components/Reviews.tsx` shows the real star rating + links to Google/Yelp by default.
-To show live, auto-updating Google reviews:
+`components/Reviews.tsx` is an auto-advancing, swipeable carousel driven by
+`data/testimonials.ts`. The real aggregate rating + Google/Yelp links sit beneath it.
 
-1. Create a free **Google Reviews** widget at https://elfsight.com/google-reviews-widget/
-2. Connect the Polishd Nail Lounge Google profile and copy the widget id
-   (the part after `elfsight-app-` in the embed code).
-3. Paste it into `reviews.elfsightAppId` in `data/site.ts`.
-
-The widget then renders in place of the fallback card.
+The quotes in `data/testimonials.ts` are **placeholders** -- replace them with the
+salon's real Google/Yelp reviews (name, stars 1-5, quote, and source "Google" or "Yelp").
 
 ## Deploy
 

@@ -135,11 +135,7 @@ export const pricing: Category[] = [
       {
         label: "Waxing",
         services: [
-          {
-            name: "Eyebrow",
-            desc: "Professional eyebrow shaping.",
-            price: 12,
-          },
+          { name: "Eyebrow", desc: "Professional eyebrow shaping.", price: 12 },
           { name: "Upper Lip", price: 9 },
           { name: "Chin", price: 10 },
           { name: "Sideburns", price: 12 },

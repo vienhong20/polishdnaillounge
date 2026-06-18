@@ -11,11 +11,12 @@ const tints = ["bg-blush/50", "bg-peach", "bg-blush/30", "bg-peach/70", "bg-blus
 
 export default function Pricing() {
   const [mode, setMode] = useState<PayMode>("cash");
+  // Single-open accordion: opening one collapses the others.
   const [open, setOpen] = useState<number>(0);
 
   return (
     <section id="services" className="bg-cream px-5 py-20 md:py-28">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-3xl">
         <div className="text-center">
           <p className="font-script text-3xl text-rose">The menu</p>
           <h2 className="mt-2 font-display text-4xl text-ink md:text-5xl">
@@ -29,34 +30,36 @@ export default function Pricing() {
           </div>
         </div>
 
-        <div className="mt-12 space-y-5 md:columns-2 md:gap-5 md:space-y-0">
+        <div className="mt-12 space-y-4">
           {pricing.map((cat, i) => {
             const isOpen = open === i;
             return (
               <div
                 key={cat.title}
-                className="overflow-hidden rounded-3xl border border-blush/40 bg-white shadow-sm shadow-blush/20 md:mb-5 md:break-inside-avoid"
+                className="overflow-hidden rounded-3xl border border-blush/40 bg-white shadow-sm shadow-blush/20"
               >
                 <button
                   type="button"
                   aria-expanded={isOpen}
                   onClick={() => setOpen(isOpen ? -1 : i)}
-                  className={`flex w-full items-center justify-between gap-3 px-6 py-4 text-left md:cursor-default ${tints[i % tints.length]}`}
+                  className={`flex w-full cursor-pointer items-center justify-between gap-3 px-6 py-5 text-left transition-colors ${tints[i % tints.length]}`}
                 >
-                  <span className="font-display text-xl text-ink">{cat.title}</span>
+                  <span className="font-display text-xl text-ink md:text-2xl">
+                    {cat.title}
+                  </span>
                   <ChevronDown
-                    size={20}
-                    className={`shrink-0 text-rose transition-transform md:hidden ${isOpen ? "rotate-180" : ""}`}
+                    size={22}
+                    className={`shrink-0 text-rose transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
                   />
                 </button>
 
                 <div
-                  className={`grid transition-[grid-template-rows] duration-300 ease-out md:grid-rows-[1fr] ${
+                  className={`grid transition-[grid-template-rows] duration-300 ease-out ${
                     isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <div className="px-6 py-3">
+                    <div className="px-6 py-4">
                       {cat.groups.map((group, gi) => (
                         <div key={gi} className={gi > 0 ? "mt-6" : ""}>
                           {group.label && (
@@ -68,7 +71,7 @@ export default function Pricing() {
                             {group.services.map((s) => (
                               <li key={`${s.name}-${s.note ?? ""}`}>
                                 <div className="flex items-baseline gap-2">
-                                  <span className="text-sm font-medium text-ink">
+                                  <span className="text-sm font-medium text-ink md:text-base">
                                     {s.name}
                                     {s.note && (
                                       <span className="ml-1 font-normal italic text-muted">
@@ -80,12 +83,12 @@ export default function Pricing() {
                                     aria-hidden
                                     className="min-w-6 flex-grow translate-y-[-3px] border-b border-dotted border-muted/40"
                                   />
-                                  <span className="shrink-0 text-sm font-semibold text-rose">
+                                  <span className="shrink-0 text-sm font-semibold text-rose md:text-base">
                                     {displayPrice(s.price, mode)}
                                   </span>
                                 </div>
                                 {s.desc && (
-                                  <p className="mt-1 max-w-[44ch] pr-10 text-xs leading-relaxed text-muted">
+                                  <p className="mt-1 max-w-[52ch] pr-10 text-xs leading-relaxed text-muted">
                                     {s.desc}
                                   </p>
                                 )}

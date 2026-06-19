@@ -93,7 +93,7 @@ export default function Hero() {
           <Sparkles size={14} /> Miami&apos;s cozy nail spot
         </span>
 
-        <h1 className="mt-6 font-display text-5xl leading-tight text-ink sm:text-6xl md:text-7xl">
+        <h1 className="mt-6 font-display text-5xl leading-[1.05] tracking-tight text-ink sm:text-6xl md:text-7xl">
           <span className="font-script text-rose">Polishd</span>
           <br />
           Nail Lounge

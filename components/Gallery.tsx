@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Instagram } from "./SocialIcons";
 import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
 import { site } from "@/data/site";
 
 // Real nail photography (public/images). Swap for the salon's own shots anytime.
@@ -16,12 +17,7 @@ const photos = [
 export default function Gallery() {
   return (
     <section id="gallery" className="mx-auto max-w-6xl px-5 py-20 md:py-28">
-      <Reveal className="text-center">
-        <p className="font-script text-3xl text-rose">Our work</p>
-        <h2 className="mt-2 font-display text-4xl text-ink md:text-5xl">
-          Pretty in every shade
-        </h2>
-      </Reveal>
+      <SectionHeading eyebrow="Gallery" title="Pretty in every shade" />
 
       <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
         {photos.map((p, i) => (

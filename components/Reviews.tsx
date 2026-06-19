@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
 import { site } from "@/data/site";
 import { testimonials } from "@/data/testimonials";
 
@@ -51,17 +52,12 @@ export default function Reviews() {
   return (
     <section className="bg-blush/20 px-5 py-20 md:py-28">
       <div className="mx-auto max-w-2xl">
-        <Reveal className="text-center">
-          <p className="font-script text-3xl text-rose">Sweet words</p>
-          <h2 className="mt-2 font-display text-4xl text-ink md:text-5xl">
-            Loved by our guests
-          </h2>
-          <div className="mt-4 flex items-center justify-center gap-2 text-sm text-muted">
-            <span className="font-display text-xl text-ink">{rating.toFixed(1)}</span>
-            <Stars count={Math.round(rating)} />
-            <span>· {count}+ reviews</span>
-          </div>
-        </Reveal>
+        <SectionHeading eyebrow="Reviews" title="Loved by our guests" />
+        <div className="mt-5 flex items-center justify-center gap-2 text-sm text-muted">
+          <span className="font-display text-xl text-ink">{rating.toFixed(1)}</span>
+          <Stars count={Math.round(rating)} />
+          <span>· {count}+ reviews</span>
+        </div>
 
         <Reveal className="mt-10">
           <div
@@ -86,7 +82,7 @@ export default function Reviews() {
                     if (info.offset.x < -60) next();
                     else if (info.offset.x > 60) prev();
                   }}
-                  className="absolute inset-0 flex cursor-grab flex-col items-center rounded-3xl border border-blush/40 bg-white p-8 text-center shadow-sm shadow-blush/20 active:cursor-grabbing md:p-10"
+                  className="absolute inset-0 flex cursor-grab flex-col items-center rounded-3xl border border-blush/40 bg-white p-8 text-center shadow-soft active:cursor-grabbing md:p-10"
                 >
                   <Quote className="text-blush" size={32} fill="currentColor" strokeWidth={0} />
                   <blockquote className="mt-4 flex-grow text-lg leading-relaxed text-ink">

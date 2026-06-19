@@ -5,6 +5,7 @@ import { ChevronDown } from "lucide-react";
 import { pricing } from "@/data/pricing";
 import { displayPrice, type PayMode } from "@/lib/price";
 import PriceToggle from "./PriceToggle";
+import SectionHeading from "./SectionHeading";
 
 // Rotating pastel tints for category headers.
 const tints = ["bg-blush/50", "bg-peach", "bg-blush/30", "bg-peach/70", "bg-blush/40"];
@@ -17,17 +18,13 @@ export default function Pricing() {
   return (
     <section id="services" className="bg-cream px-5 py-20 md:py-28">
       <div className="mx-auto max-w-3xl">
-        <div className="text-center">
-          <p className="font-script text-3xl text-rose">The menu</p>
-          <h2 className="mt-2 font-display text-4xl text-ink md:text-5xl">
-            Our Services & Pricing
-          </h2>
-          <p className="mx-auto mt-4 max-w-md text-sm text-muted">
-            Prices shown in cash. Card payments are subject to a 2% surcharge.
-          </p>
-          <div className="mt-6 flex justify-center">
-            <PriceToggle mode={mode} onChange={setMode} />
-          </div>
+        <SectionHeading
+          eyebrow="Menu"
+          title="Our Services & Pricing"
+          subtitle="Prices shown in cash. Card payments are subject to a 2% surcharge."
+        />
+        <div className="mt-6 flex justify-center">
+          <PriceToggle mode={mode} onChange={setMode} />
         </div>
 
         <div className="mt-12 space-y-4">
@@ -36,7 +33,7 @@ export default function Pricing() {
             return (
               <div
                 key={cat.title}
-                className="overflow-hidden rounded-3xl border border-blush/40 bg-white shadow-sm shadow-blush/20"
+                className="overflow-hidden rounded-3xl border border-blush/40 bg-white shadow-soft"
               >
                 <button
                   type="button"

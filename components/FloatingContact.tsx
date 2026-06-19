@@ -24,7 +24,7 @@ export default function FloatingContact() {
   }, []);
 
   return (
-    <div className="fixed bottom-5 right-4 z-50 flex flex-col items-center gap-3 md:bottom-8 md:right-6">
+    <div className="fixed inset-x-0 bottom-4 z-50 flex flex-row items-center justify-center gap-3 md:inset-x-auto md:bottom-8 md:right-6 md:flex-col">
       <a
         href={site.socials.facebook}
         target="_blank"

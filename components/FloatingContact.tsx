@@ -1,6 +1,9 @@
+"use client";
+
 import { Phone, CalendarHeart } from "lucide-react";
 import { Instagram, Facebook } from "./SocialIcons";
 import { site } from "@/data/site";
+import { openBooking } from "@/lib/booking";
 
 // Mobile: ghost icons sitting inside the pill card (like navbar links).
 // Desktop (md+): standalone floating white circles on the right edge.
@@ -45,12 +48,12 @@ export default function FloatingContact() {
         <Phone size={20} />
       </a>
 
-      {/* Online booking — Rewanow widget.js binds via class + busid (in-page popup). */}
+      {/* Online booking — opens the in-page BookingModal popup. */}
       <button
         type="button"
         aria-label="Book an appointment"
-        {...{ busid: site.booking.busid }}
-        className="rewanow-scheduler-container group relative flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-rose text-white shadow-md shadow-rose/30 transition hover:bg-rose/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose active:scale-95 md:h-14 md:w-14 md:shadow-lg md:shadow-rose/40"
+        onClick={openBooking}
+        className="group relative flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-rose text-white shadow-md shadow-rose/30 transition hover:bg-rose/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose active:scale-95 md:h-14 md:w-14 md:shadow-lg md:shadow-rose/40"
       >
         <Label>Book Now</Label>
         <CalendarHeart size={24} />

@@ -1,5 +1,3 @@
-"use client";
-
 import { Phone, CalendarHeart } from "lucide-react";
 import { Instagram, Facebook } from "./SocialIcons";
 import { site } from "@/data/site";
@@ -47,17 +45,11 @@ export default function FloatingContact() {
         <Phone size={20} />
       </a>
 
-      {/* Online booking — opens the Rewanow widget (fallback: new tab) */}
+      {/* Online booking — Rewanow widget.js binds via class + busid (in-page popup). */}
       <button
         type="button"
         aria-label="Book an appointment"
         {...{ busid: site.booking.busid }}
-        onClick={() => {
-          const w = window as unknown as Record<string, unknown>;
-          if (!w.rewanow && !w.Rewanow) {
-            window.open(site.booking.url, "_blank", "noopener");
-          }
-        }}
         className="rewanow-scheduler-container group relative flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-rose text-white shadow-md shadow-rose/30 transition hover:bg-rose/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose active:scale-95 md:h-14 md:w-14 md:shadow-lg md:shadow-rose/40"
       >
         <Label>Book Now</Label>

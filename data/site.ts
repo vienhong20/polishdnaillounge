@@ -5,8 +5,7 @@ export const site = {
   description:
     "Polishd Nail Lounge is a nail salon on Biscayne Blvd in North Miami, FL. Manicures, pedicures, gel-X, dip powder, acrylics & nail art in a clean, cozy studio. Book your appointment today.",
   // Canonical production domain — used for metadataBase, sitemap, robots, JSON-LD.
-  // ⚠️ Confirm/replace with the real deployed domain before launch.
-  url: "https://polishdnaillounge.com",
+  url: "https://polishdnaillounge.vercel.app",
   phone: "786-391-3755",
   phoneHref: "+17863913755",
   address: "12000 Biscayne Blvd #150, Miami, FL 33181",

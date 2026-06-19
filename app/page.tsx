@@ -6,13 +6,13 @@ import Gallery from "@/components/Gallery";
 import Reviews from "@/components/Reviews";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import FloatingBook from "@/components/FloatingBook";
+import FloatingContact from "@/components/FloatingContact";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="pb-20 md:pb-0">
+      <main>
         <Hero />
         <About />
         <Pricing />
@@ -21,7 +21,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-      <FloatingBook />
+      <FloatingContact />
     </>
   );
 }

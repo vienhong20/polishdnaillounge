@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { Phone, CalendarHeart } from "lucide-react";
 import { Instagram, Facebook } from "./SocialIcons";
 import { site } from "@/data/site";
 
+// Mobile: ghost icons sitting inside the pill card (like navbar links).
+// Desktop (md+): standalone floating white circles on the right edge.
 const baseBtn =
-  "group relative flex h-12 w-12 items-center justify-center rounded-full bg-white text-rose shadow-md shadow-rose/20 ring-1 ring-blush/40 transition hover:bg-rose hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose";
+  "group relative flex h-11 w-11 items-center justify-center rounded-full text-rose transition hover:bg-rose/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose md:h-12 md:w-12 md:bg-white md:shadow-md md:shadow-rose/20 md:ring-1 md:ring-blush/40 md:hover:bg-rose md:hover:text-white";
 
 function Label({ children }: { children: React.ReactNode }) {
   return (
@@ -17,14 +18,8 @@ function Label({ children }: { children: React.ReactNode }) {
 }
 
 export default function FloatingContact() {
-  const bookRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    bookRef.current?.setAttribute("busid", site.booking.busid);
-  }, []);
-
   return (
-    <div className="fixed inset-x-0 bottom-4 z-50 flex flex-row items-center justify-center gap-3 md:inset-x-auto md:bottom-8 md:right-6 md:flex-col">
+    <div className="fixed bottom-4 left-1/2 z-50 flex -translate-x-1/2 flex-row items-center gap-1.5 rounded-full border border-blush/40 bg-white/80 px-2.5 py-2 shadow-lg shadow-rose/10 backdrop-blur-md md:bottom-8 md:left-auto md:right-6 md:translate-x-0 md:flex-col md:gap-3 md:rounded-none md:border-transparent md:bg-transparent md:p-0 md:shadow-none md:backdrop-blur-none">
       <a
         href={site.socials.facebook}
         target="_blank"
@@ -54,16 +49,16 @@ export default function FloatingContact() {
 
       {/* Online booking — opens the Rewanow widget (fallback: new tab) */}
       <button
-        ref={bookRef}
         type="button"
         aria-label="Book an appointment"
+        {...{ busid: site.booking.busid }}
         onClick={() => {
           const w = window as unknown as Record<string, unknown>;
           if (!w.rewanow && !w.Rewanow) {
             window.open(site.booking.url, "_blank", "noopener");
           }
         }}
-        className="rewanow-scheduler-container group relative flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-rose text-white shadow-lg shadow-rose/40 transition hover:bg-rose/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose active:scale-95"
+        className="rewanow-scheduler-container group relative flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-rose text-white shadow-md shadow-rose/30 transition hover:bg-rose/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose active:scale-95 md:h-14 md:w-14 md:shadow-lg md:shadow-rose/40"
       >
         <Label>Book Now</Label>
         <CalendarHeart size={24} />

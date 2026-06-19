@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import { site } from "@/data/site";
 import LocalBusinessJsonLd from "@/components/LocalBusinessJsonLd";
@@ -88,9 +87,20 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-body bg-cream text-ink">
         <LocalBusinessJsonLd />
         {children}
-        <Script
-          src="https://www.rewanow.com/scheduler/assets/widget.js"
-          strategy="afterInteractive"
+        {/*
+          Rewanow booking widget. Injected at the end of <body> — exactly like
+          Rewanow's own <script> snippet — so the .rewanow-scheduler-container
+          buttons above already exist in the DOM when widget.js runs and binds
+          the in-page popup. (Next's <Script afterInteractive> ran too late and
+          missed the widget's DOMContentLoaded init; <head> placement runs too
+          early, before the body buttons are parsed.) Inline injector keeps the
+          tag in <body> rather than letting React hoist it to <head>.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){var s=document.createElement('script');s.src='https://www.rewanow.com/scheduler/assets/widget.js';s.type='text/javascript';document.body.appendChild(s);})();",
+          }}
         />
       </body>
     </html>

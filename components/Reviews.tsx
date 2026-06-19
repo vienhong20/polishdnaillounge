@@ -50,7 +50,7 @@ export default function Reviews() {
   const t = testimonials[index];
 
   return (
-    <section className="bg-blush/20 px-5 py-20 md:py-28">
+    <section className="bg-peach/50 px-5 py-20 md:py-28">
       <div className="mx-auto max-w-2xl">
         <SectionHeading eyebrow="Reviews" title="Loved by our guests" />
         <div className="mt-5 flex items-center justify-center gap-2 text-sm text-muted">
@@ -82,9 +82,9 @@ export default function Reviews() {
                     if (info.offset.x < -60) next();
                     else if (info.offset.x > 60) prev();
                   }}
-                  className="absolute inset-0 flex cursor-grab flex-col items-center rounded-3xl border border-blush/40 bg-white p-8 text-center shadow-soft active:cursor-grabbing md:p-10"
+                  className="absolute inset-0 flex cursor-grab flex-col items-center rounded-2xl border border-ink/10 bg-cream p-8 text-center shadow-soft active:cursor-grabbing md:p-10"
                 >
-                  <Quote className="text-blush" size={32} fill="currentColor" strokeWidth={0} />
+                  <Quote className="text-rose/30" size={32} fill="currentColor" strokeWidth={0} />
                   <blockquote className="mt-4 flex-grow text-lg leading-relaxed text-ink">
                     &ldquo;{t.quote}&rdquo;
                   </blockquote>

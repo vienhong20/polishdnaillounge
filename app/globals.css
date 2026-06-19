@@ -1,34 +1,30 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cream: #fff9f5;
-  --color-blush: #f6c9d0;
-  --color-rose: #e89aa6;
-  --color-peach: #fce3d5;
-  --color-gold: #c9a36b;
-  --color-ink: #5a4147;
-  --color-muted: #9b8186;
+  /* Warm-neutral editorial palette — bone, sand, espresso, clay. */
+  --color-cream: #f4f0ea; /* bone — page background */
+  --color-blush: #e2d8cb; /* warm hairline + light fill */
+  --color-rose: #a85c43; /* clay — primary accent */
+  --color-peach: #ebe3d6; /* sand — surface tint */
+  --color-gold: #9c7c4f; /* warm tan — eyebrows, stars */
+  --color-ink: #2a2521; /* espresso — primary text */
+  --color-muted: #6b6056; /* stone — secondary text */
 
   --font-display: var(--font-fraunces), serif;
-  --font-body: var(--font-poppins), system-ui, sans-serif;
-  --font-script: var(--font-sacramento), cursive;
+  --font-body: var(--font-inter), system-ui, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* Soft UI Evolution — layered, tinted depth instead of flat shadows. */
+/* Editorial depth — restrained shadows; hierarchy carried by hairlines + whitespace. */
 @layer utilities {
   .shadow-soft {
-    box-shadow:
-      0 1px 2px rgba(90, 65, 71, 0.04),
-      0 14px 40px -18px rgba(232, 154, 166, 0.35);
+    box-shadow: 0 1px 2px rgba(42, 37, 33, 0.04), 0 12px 32px -20px rgba(42, 37, 33, 0.22);
   }
   .shadow-soft-lg {
-    box-shadow:
-      0 2px 4px rgba(90, 65, 71, 0.05),
-      0 28px 60px -24px rgba(232, 154, 166, 0.45);
+    box-shadow: 0 2px 4px rgba(42, 37, 33, 0.05), 0 24px 56px -28px rgba(42, 37, 33, 0.28);
   }
 }
 
@@ -36,6 +32,7 @@ body {
   background-color: var(--color-cream);
   color: var(--color-ink);
   font-family: var(--font-body);
+  font-feature-settings: "ss01", "cv01";
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -33,9 +33,11 @@ export default function Navbar() {
             : "border border-transparent"
         }`}
       >
-        <a href="#top" className="flex items-baseline gap-1.5 leading-none">
-          <span className="font-script text-2xl text-rose">Polishd</span>
-          <span className="font-display text-base font-medium tracking-tight text-ink">
+        <a href="#top" className="flex items-baseline gap-2 leading-none">
+          <span className="font-display text-xl font-semibold tracking-[-0.02em] text-ink">
+            Polishd
+          </span>
+          <span className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-muted">
             Nail Lounge
           </span>
         </a>

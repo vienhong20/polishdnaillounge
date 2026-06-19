@@ -77,7 +77,7 @@ export default function Contact() {
         </Reveal>
 
         <Reveal>
-          <div className="relative h-72 overflow-hidden rounded-3xl border border-blush/40 md:h-full md:min-h-[22rem]">
+          <div className="relative h-72 overflow-hidden rounded-2xl border border-ink/10 md:h-full md:min-h-[22rem]">
             <iframe
               title="Polishd Nail Lounge location map"
               src={mapSrc}

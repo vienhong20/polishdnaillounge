@@ -7,23 +7,22 @@ type Props = {
   className?: string;
 };
 
-// Editorial section heading: tracked uppercase eyebrow flanked by accent rules,
-// a refined serif title, and an optional subtitle. Used across every section.
+// Editorial section heading: minimal tracked eyebrow with a dot marker,
+// a large refined serif title, and an optional subtitle. Used across every section.
 export default function SectionHeading({ eyebrow, title, subtitle, className = "" }: Props) {
   return (
     <Reveal className={`mx-auto max-w-2xl text-center ${className}`}>
-      <div className="flex items-center justify-center gap-3">
-        <span className="h-px w-8 bg-gradient-to-r from-transparent to-rose/70" />
-        <span className="text-xs font-semibold uppercase tracking-[0.25em] text-rose">
-          {eyebrow}
-        </span>
-        <span className="h-px w-8 bg-gradient-to-l from-transparent to-rose/70" />
-      </div>
-      <h2 className="mt-4 text-balance font-display text-4xl tracking-tight text-ink md:text-5xl">
+      <span className="inline-flex items-center gap-2 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-rose">
+        <span className="h-1.5 w-1.5 rounded-full bg-rose" />
+        {eyebrow}
+      </span>
+      <h2 className="mt-5 text-balance font-display text-4xl font-medium leading-[1.08] tracking-[-0.02em] text-ink md:text-[3.25rem]">
         {title}
       </h2>
       {subtitle && (
-        <p className="mx-auto mt-4 max-w-md text-pretty text-muted">{subtitle}</p>
+        <p className="mx-auto mt-5 max-w-md text-pretty leading-relaxed text-muted">
+          {subtitle}
+        </p>
       )}
     </Reveal>
   );

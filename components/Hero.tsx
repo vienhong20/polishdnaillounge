@@ -79,33 +79,35 @@ export default function Hero() {
         )}
 
         {/* Readability wash — keeps the pastel feel and dark text legible over media */}
-        <div className="absolute inset-0 bg-gradient-to-b from-cream/75 via-cream/60 to-cream/90" />
+        {/* Readability wash — warm neutral veil keeps espresso text legible over media */}
+        <div className="absolute inset-0 bg-gradient-to-b from-cream/85 via-cream/70 to-cream/93" />
       </div>
 
       {/* Content */}
       <motion.div
-        className="relative z-10 mx-auto max-w-3xl px-6 text-center"
+        className="relative z-10 mx-auto max-w-4xl px-6 text-center"
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-white/80 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-gold shadow-sm">
-          <Sparkles size={14} /> Miami&apos;s cozy nail spot
+        <span className="inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white/55 px-4 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold backdrop-blur-sm">
+          <Sparkles size={13} /> Nail Studio · Miami, FL
         </span>
 
-        <h1 className="mt-6 font-display text-5xl leading-[1.05] tracking-tight text-ink sm:text-6xl md:text-7xl">
-          <span className="font-script text-rose">Polishd</span>
-          <br />
-          Nail Lounge
+        <h1 className="mt-7 font-display text-[3.4rem] font-medium leading-[0.98] tracking-[-0.03em] text-ink sm:text-7xl md:text-[5.5rem]">
+          Polishd
+          <span className="mt-1 block font-normal italic text-rose">Nail Lounge</span>
         </h1>
 
-        <p className="mx-auto mt-5 max-w-xl text-lg text-ink/80">{site.tagline}</p>
+        <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-muted">
+          {site.tagline}
+        </p>
 
-        <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <BookButton className="w-full sm:w-auto" />
           <a
             href="#services"
-            className="inline-flex w-full items-center justify-center rounded-full border border-rose/40 bg-white/70 px-7 py-3 font-medium text-ink backdrop-blur-sm transition hover:border-rose hover:text-rose sm:w-auto"
+            className="inline-flex w-full items-center justify-center rounded-full border border-ink/15 bg-white/50 px-7 py-3 font-medium text-ink backdrop-blur-sm transition hover:border-ink/40 hover:bg-white/80 sm:w-auto"
           >
             View Menu
           </a>

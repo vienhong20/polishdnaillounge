@@ -7,9 +7,6 @@ import { displayPrice, type PayMode } from "@/lib/price";
 import PriceToggle from "./PriceToggle";
 import SectionHeading from "./SectionHeading";
 
-// Rotating pastel tints for category headers.
-const tints = ["bg-blush/50", "bg-peach", "bg-blush/30", "bg-peach/70", "bg-blush/40"];
-
 export default function Pricing() {
   const [mode, setMode] = useState<PayMode>("cash");
   // Single-open accordion: opening one collapses the others.
@@ -33,16 +30,25 @@ export default function Pricing() {
             return (
               <div
                 key={cat.title}
-                className="overflow-hidden rounded-3xl border border-blush/40 bg-white shadow-soft"
+                className={`overflow-hidden rounded-2xl border transition-colors ${
+                  isOpen ? "border-rose/30 bg-cream" : "border-ink/10 bg-cream"
+                }`}
               >
                 <button
                   type="button"
                   aria-expanded={isOpen}
                   onClick={() => setOpen(i)}
-                  className={`flex w-full cursor-pointer items-center justify-between gap-3 px-6 py-5 text-left transition-colors ${tints[i % tints.length]}`}
+                  className={`flex w-full cursor-pointer items-center justify-between gap-3 px-6 py-5 text-left transition-colors ${
+                    isOpen ? "bg-peach/60" : "hover:bg-peach/40"
+                  }`}
                 >
-                  <span className="font-display text-xl text-ink md:text-2xl">
-                    {cat.title}
+                  <span className="flex items-baseline gap-3">
+                    <span className="font-display text-sm text-rose">
+                      0{i + 1}
+                    </span>
+                    <span className="font-display text-xl font-medium text-ink md:text-2xl">
+                      {cat.title}
+                    </span>
                   </span>
                   <ChevronDown
                     size={22}

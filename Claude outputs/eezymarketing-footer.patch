@@ -1,0 +1,27 @@
+From cf37af2cb61ea76cdc3da33dc077aeafe20c7329 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Wed, 16 Sep 2026 17:46:04 +0000
+Subject: [PATCH] Add 'Powered by EezyMarketing' to footer copyright
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PgBcr44DTT7sDnpNxLXqZN
+---
+ index.html | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/index.html b/index.html
+index 6f84a25..c0da156 100644
+--- a/index.html
++++ b/index.html
+@@ -1673,7 +1673,7 @@
+ 
+   <div class="footer-bottom">
+     <div class="container">
+-      <p>© 2026 NAIL MARK · made with ❤️</p>
++      <p>© 2026 NAIL MARK · made with ❤️ · Powered by EezyMarketing</p>
+     </div>
+   </div>
+ </footer>
+-- 
+2.43.0
+
